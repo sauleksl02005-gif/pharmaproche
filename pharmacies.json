@@ -1,0 +1,73 @@
+[
+  {
+    "id": "1ca1ce20-b6e6-4061-94a4-6a7ce4e4b368",
+    "nom": "Pharmacie du Centre",
+    "region": "Littoral",
+    "ville": "Douala",
+    "quartier": "Bonanjo",
+    "lat": 4.0511,
+    "lng": 9.6903,
+    "telephone": "+237 677 12 34 56",
+    "medicaments": {
+      "Paracétamol": true,
+      "Amoxicilline": true,
+      "Oméprazole": true
+    },
+    "username": "pharma.centre",
+    "salt": "389ebb44896108be48a35cd75f548978",
+    "hash": "bda4e11c93b2ba4f23737af506add3ecbd4a2c9c37132ed341dc0e0fae3ae3e68756be6ff9cb21b2b0f341b7ad1dfa15486745fa858a36eec5d69ec985a64059"
+  },
+  {
+    "id": "cc56a234-dba4-4bcb-8d4b-6fd9fa52c726",
+    "nom": "Pharmacie de l'Espoir",
+    "region": "Littoral",
+    "ville": "Douala",
+    "quartier": "Akwa",
+    "lat": 4.0483,
+    "lng": 9.6963,
+    "telephone": "+237 690 23 45 67",
+    "medicaments": {
+      "Paracétamol": true,
+      "Insuline": true,
+      "Salbutamol": true
+    },
+    "username": "pharma.espoir",
+    "salt": "31577559923ebfc10c7d1bd5a1977f1e",
+    "hash": "742627ed24def2a8a840ccf771ec433d2bf870a6de18d39772b873e43f51c0a64af391f758a939c4bd5d5347d84fbe0d16a56ffea2851b7acdf15ba8c0727dae"
+  },
+  {
+    "id": "e51b9372-165d-4f1d-be70-71ce795462c9",
+    "nom": "Pharmacie Saint-Michel",
+    "region": "Littoral",
+    "ville": "Douala",
+    "quartier": "Bepanda",
+    "lat": 4.067,
+    "lng": 9.735,
+    "telephone": "+237 655 34 56 78",
+    "medicaments": {
+      "Amoxicilline": true,
+      "Artéméther-Luméfantrine": true
+    },
+    "username": "pharma.stmichel",
+    "salt": "24e36aab5e63898d38d613e12320baf4",
+    "hash": "b1fd19161240f753b10beca4bd030cdc7efe9f46819be54374e8517370b5176d7c5f159320e03237f8abb64c648ffd8b48ac386a1e9d30a6c22004b4c7c8a2f1"
+  },
+  {
+    "id": "d707b933-e3fd-4f95-b85e-6ab13895a8a1",
+    "nom": "Pharmacie du Plateau",
+    "region": "Centre",
+    "ville": "Yaoundé",
+    "quartier": "Plateau Atemengue",
+    "lat": 3.8767,
+    "lng": 11.5213,
+    "telephone": "+237 699 45 67 89",
+    "medicaments": {
+      "Paracétamol": true,
+      "Métformine": true,
+      "Insuline": true
+    },
+    "username": "pharma.plateau",
+    "salt": "e3c404235d33703634d480781284d920",
+    "hash": "a65375bf27fa8cb1cdfeb503c6a76a9d3da18c5749952e6d4e1454b4cd415825e81f1dec709865f1da23bc48977456c62396b3c551b236d6b7cb4dfb019c2268"
+  }
+]

@@ -1,0 +1,8 @@
+[
+  {
+    "id": "a1",
+    "username": "admin",
+    "salt": "ff185b483a34beb78c67e8a322959cf2",
+    "hash": "af2b20e1363d22386e9b18b8f3b30fbebb668c6fddd1d70b413cae8881c6ed701ab26282f107de8ab03f2814d65785c8d4c5b888455336635497f10bfff2d302"
+  }
+]
