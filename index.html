@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PharmaProche — trouver un médicament</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230E5C56'/%3E%3Cpath d='M10 4h4v6h6v4h-6v6h-4v-6H4v-4h6V4z' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="top-strip"></div>
+<div class="navbar">
+  <div class="navbar-inner">
+    <a href="/index.html" class="brand">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7V3z" fill="white"/></svg></span>
+      <span><span class="brand-text">PharmaProche</span><span class="brand-tagline">Réseau pharmaceutique du Cameroun</span></span>
+    </a>
+    <nav class="tabs">
+      <a href="/index.html" class="active">Rechercher</a>
+      <a href="/pharmacie.html">Espace pharmacie</a>
+      <a href="/admin.html">Espace admin</a>
+    </nav>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="page-head">
+      <h1>Trouver un médicament, sans faire le tour de la ville</h1>
+      <p>Cherche un médicament, filtre par région et ville, et localise en un clic la pharmacie la plus proche de toi.</p>
+    </div>
+
+    <div class="field autocomplete-wrap">
+      <label for="search">Médicament</label>
+      <input id="search" type="text" placeholder="ex : Amoxicilline, Insuline…" autocomplete="off">
+      <div id="suggestions" class="suggestions"></div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="region">Région</label>
+        <select id="region"><option value="">Toutes les régions</option></select>
+      </div>
+      <div class="field">
+        <label for="ville">Ville</label>
+        <select id="ville"><option value="">Toutes les villes</option></select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="quartier">Ton quartier (facultatif, pour trouver la plus proche)</label>
+      <input id="quartier" type="text" placeholder="ex : Akwa, Bonanjo…" autocomplete="off">
+    </div>
+
+    <button class="primary" type="button" id="useMyLocationBtn">📍 Utiliser ma position pour trouver la pharmacie la plus proche</button>
+    <p class="field-hint" id="geoStatus"></p>
+  </div>
+</div>
+
+<div class="app" style="padding-top:26px;">
+  <p id="resultCount" class="result-count" style="display:none;"></p>
+  <div id="results" class="result-list"></div>
+</div>
+
+<script src="/js/patient.js"></script>
+</body>
+</html>

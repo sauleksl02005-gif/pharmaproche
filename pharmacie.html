@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PharmaProche — espace pharmacie</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230E5C56'/%3E%3Cpath d='M10 4h4v6h6v4h-6v6h-4v-6H4v-4h6V4z' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="top-strip"></div>
+<div class="navbar">
+  <div class="navbar-inner">
+    <a href="/index.html" class="brand">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7V3z" fill="white"/></svg></span>
+      <span><span class="brand-text">PharmaProche</span><span class="brand-tagline">Réseau pharmaceutique du Cameroun</span></span>
+    </a>
+    <nav class="tabs">
+      <a href="/index.html">Rechercher</a>
+      <a href="/pharmacie.html" class="active">Espace pharmacie</a>
+      <a href="/admin.html">Espace admin</a>
+    </nav>
+  </div>
+</div>
+
+<div class="app">
+  <div id="loginView">
+    <div class="page-head">
+      <h1>Espace pharmacie</h1>
+      <p>Connecte-toi avec les identifiants transmis par l'administrateur pour déclarer tes médicaments disponibles ou en rupture.</p>
+    </div>
+    <div class="login-wrap">
+      <div class="login-box">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7V3z" fill="white"/></svg></span>
+        <h2>Connexion pharmacie</h2>
+        <p class="sub">Réservé au personnel de l'officine.</p>
+        <div class="field">
+          <label for="username">Identifiant</label>
+          <input id="username" type="text" autocomplete="username">
+        </div>
+        <div class="field">
+          <label for="password">Mot de passe</label>
+          <input id="password" type="password" autocomplete="current-password">
+        </div>
+        <button class="primary" id="loginBtn">Se connecter</button>
+        <p class="error-msg" id="loginError"></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="dashView" style="display:none;">
+    <div class="session-bar">
+      <div class="who">
+        <strong id="pharmaNom"></strong>
+        <span id="pharmaLieu"></span>
+      </div>
+      <button class="ghost" id="logoutBtn">Se déconnecter</button>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat"><div class="num" id="statTotal">0</div><div class="label">Médicaments suivis</div></div>
+      <div class="stat"><div class="num" id="statDispo">0</div><div class="label">Disponibles</div></div>
+      <div class="stat"><div class="num" id="statRupture">0</div><div class="label">En rupture</div></div>
+    </div>
+
+    <h2 class="section-title">Mon stock</h2>
+    <div id="stockList"></div>
+
+    <fieldset style="margin-top:26px;">
+      <legend>Ajouter un médicament</legend>
+      <div style="display:flex; gap:8px;">
+        <input id="newMed" type="text" placeholder="Nom du médicament" style="flex:1; padding:12px 14px; border:1px solid var(--line); border-radius:8px; font-family:inherit; font-size:0.95rem;">
+        <button class="primary" id="addMedBtn">Ajouter</button>
+      </div>
+    </fieldset>
+
+    <p class="note">Chaque changement est enregistré et visible immédiatement par les patients qui recherchent ce médicament.</p>
+  </div>
+</div>
+
+<script src="/js/pharmacie.js"></script>
+</body>
+</html>

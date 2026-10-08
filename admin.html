@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PharmaProche — espace admin</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230E5C56'/%3E%3Cpath d='M10 4h4v6h6v4h-6v6h-4v-6H4v-4h6V4z' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="top-strip"></div>
+<div class="navbar">
+  <div class="navbar-inner">
+    <a href="/index.html" class="brand">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7V3z" fill="white"/></svg></span>
+      <span><span class="brand-text">PharmaProche</span><span class="brand-tagline">Réseau pharmaceutique du Cameroun</span></span>
+    </a>
+    <nav class="tabs">
+      <a href="/index.html">Rechercher</a>
+      <a href="/pharmacie.html">Espace pharmacie</a>
+      <a href="/admin.html" class="active">Espace admin</a>
+    </nav>
+  </div>
+</div>
+
+<div class="app">
+  <div id="loginView">
+    <div class="page-head">
+      <h1>Espace admin</h1>
+      <p>Enregistre les pharmacies du réseau et attribue à chacune ses identifiants de connexion.</p>
+    </div>
+    <div class="login-wrap">
+      <div class="login-box">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7V3z" fill="white"/></svg></span>
+        <h2>Connexion admin</h2>
+        <p class="sub">Accès réservé à l'administration du réseau.</p>
+        <div class="field">
+          <label for="username">Identifiant admin</label>
+          <input id="username" type="text" autocomplete="username">
+        </div>
+        <div class="field">
+          <label for="password">Mot de passe</label>
+          <input id="password" type="password" autocomplete="current-password">
+        </div>
+        <button class="primary" id="loginBtn">Se connecter</button>
+        <p class="error-msg" id="loginError"></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="dashView" style="display:none;">
+    <div class="session-bar">
+      <div class="who"><strong>Administration du réseau</strong><span>Session admin active</span></div>
+      <button class="ghost" id="logoutBtn">Se déconnecter</button>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat"><div class="num" id="statPharmacies">0</div><div class="label">Pharmacies inscrites</div></div>
+      <div class="stat"><div class="num" id="statVilles">0</div><div class="label">Villes couvertes</div></div>
+      <div class="stat"><div class="num" id="statMeds">0</div><div class="label">Médicaments suivis</div></div>
+    </div>
+
+    <h2 class="section-title">Inscrire une pharmacie</h2>
+    <form id="addForm">
+      <fieldset>
+        <legend>Identité de l'officine</legend>
+        <div class="field">
+          <label for="nom">Nom de la pharmacie</label>
+          <input id="nom" type="text" required>
+        </div>
+        <div class="field">
+          <label for="telephone">Numéro de téléphone (facultatif)</label>
+          <input id="telephone" type="tel" placeholder="ex : +237 677 12 34 56">
+          <p class="field-hint">Affiché aux patients avec un bouton « Appeler » et « WhatsApp ».</p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Localisation</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="regionSelect">Région existante</label>
+            <select id="regionSelect"><option value="">— Nouvelle région —</option></select>
+          </div>
+          <div class="field">
+            <label for="regionNew">Ou nouvelle région</label>
+            <input id="regionNew" type="text" placeholder="ex : Ouest">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="villeSelect">Ville existante</label>
+            <select id="villeSelect"><option value="">— Nouvelle ville —</option></select>
+          </div>
+          <div class="field">
+            <label for="villeNew">Ou nouvelle ville</label>
+            <input id="villeNew" type="text" placeholder="ex : Bafoussam">
+          </div>
+        </div>
+        <div class="field">
+          <label for="quartier">Quartier</label>
+          <input id="quartier" type="text" required placeholder="ex : Banengo">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="lat">Latitude (facultatif)</label>
+            <input id="lat" type="number" step="any" placeholder="ex : 4.0511">
+          </div>
+          <div class="field">
+            <label for="lng">Longitude (facultatif)</label>
+            <input id="lng" type="number" step="any" placeholder="ex : 9.6903">
+          </div>
+        </div>
+        <button class="ghost" type="button" id="useMyLocationBtn">📍 Utiliser la position actuelle</button>
+        <p class="field-hint" id="geoStatus">Renseigne les coordonnées GPS de l'officine pour permettre aux patients de voir la distance réelle et la pharmacie la plus proche. Sans coordonnées, la pharmacie reste trouvable, mais sans tri par distance.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Médicaments de départ</legend>
+        <div class="field">
+          <label for="medicaments">Séparés par des virgules</label>
+          <input id="medicaments" type="text" placeholder="Paracétamol, Amoxicilline, Insuline">
+          <p class="field-hint">La pharmacie pourra ensuite en ajouter d'autres elle-même, depuis son propre espace.</p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Identifiants de connexion de la pharmacie</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="loginUser">Identifiant</label>
+            <input id="loginUser" type="text" required>
+          </div>
+          <div class="field">
+            <label for="loginPass">Mot de passe (min. 8 caractères)</label>
+            <input id="loginPass" type="password" minlength="8" required>
+          </div>
+        </div>
+        <p class="field-hint">Transmets ces identifiants à la pharmacie : elle s'en servira pour gérer son propre stock.</p>
+      </fieldset>
+
+      <button class="primary" type="submit">Inscrire la pharmacie</button>
+      <p class="error-msg" id="formError"></p>
+      <p class="success-msg" id="formSuccess"></p>
+    </form>
+
+    <h2 class="section-title">Pharmacies du réseau</h2>
+    <p class="field-hint" style="margin-bottom:14px;">Les mots de passe sont chiffrés et ne peuvent pas être consultés — utilise « Réinitialiser le mot de passe » pour en générer un nouveau à transmettre à la pharmacie.</p>
+    <div id="list" class="result-list"></div>
+  </div>
+</div>
+
+<script src="/js/admin.js"></script>
+</body>
+</html>
